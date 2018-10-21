@@ -68,7 +68,7 @@
 		<div class="card">
 			<h4>Remove</h4>
 			<p>
-				A single SVG element can be retrieved if it has a unique ID. This element can then be removed with the remove() function.	
+				A single SVG element can be retrieved if it has a unique ID. This element can then be removed with the <code> remove() </code>.	
 			</p>	
 		</div>
 		<div class="col-40">
@@ -109,6 +109,40 @@ function removeGlyph() {
 	</div>
 	<div class="break"></div>
 
+	<div class="row">
+	
+		<div class="card">
+			<h4>Move</h4>
+			<p>
+				A single SVG element can be retrieved if it has a unique ID. This element can then be removed with the <code> remove() </code>.	
+			</p>	
+		</div>
+		<div class="col-40">
+				
+			<div class="card">
+				 <div id="svg03">
+				 
+				 </div>
+			<div class="card">
+				<span class="a-button noselect" onclick="frameRenderLoop()">Go</span>
+				
+			</div>			
+			</div>	
+
+		</div>
+		<div class="col-60">
+			<div class="card">
+				<pre>
+					<code>
+				   			 
+					</code>
+				</pre>
+				</div>	
+		</div>
+	</div>
+	<div class="break"></div>
+
+	
 	
 
 </div>

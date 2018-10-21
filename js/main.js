@@ -1,4 +1,5 @@
 var glyphs=[]
+var mGlyph;
 
 function SVG(elementName) {
 	return document.createElementNS('http://www.w3.org/2000/svg', elementName);
@@ -34,9 +35,25 @@ function initGroup() {
 	elm.appendChild(svg)
 }
 
+function initMove() {
+	var elm = document.getElementById("svg03");
+	var svg = SVG("svg");
+
+	
+	svg.style.height="200px";
+	svg.style.width="200px";
+	svg.id = "svg-canvas-01";
+	svg.classList.add("thin-border");
+	mGlyph = new GlyphObject()
+	mGlyph.setPos(randomInt(0,100),randomInt(0,100));
+	svg.appendChild(mGlyph.glyph)
+	elm.appendChild(svg)
+}
+
 function init() {
 	initGroup();
 	initAdd();
+	initMove()
 }
 
 
@@ -78,5 +95,50 @@ function removeGlyph() {
 		glyph.remove();
 	}
 }
+
+function GlyphObject(){
+	this.glyph = glyph()
+	this.xPos = 0;
+	this.yPos = 0;
+	this.dx=1;
+	this.dy=1;
+}
+
+GlyphObject.prototype.move = function(){
+	this.xPos += this.dx;
+	this.yPos += this.dy;
+	if(this.xPos>99){
+		this.dx = this.dx*-1	
+	}
+	if(this.yPos>99){
+		this.dy = this.dy*-1	
+	}
+	if(this.xPos<1){
+		this.dx = this.dx*-1	
+	}
+	if(this.yPos<1){
+		this.dy = this.dy*-1	
+	}
+	this.glyph.setAttribute("transform","translate("+this.xPos+","+this.yPos+")");
+}
+
+GlyphObject.prototype.setPos = function(x,y){
+	this.xPos = x;
+	this.yPos = y;
+	this.glyph.setAttribute("transform","translate("+this.xPos+","+this.yPos+")");
+}
+
+function moveGlyph() {
+	mGlyph.move()
+	setTimeout(moveGlyph, 1);
+}
+
+function frameRenderLoop() {
+    setTimeout(moveGlyph, 1);
+}
+
+
+
+
 
 

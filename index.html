@@ -109,6 +109,80 @@ function removeGlyph() {
 	</div>
 	<div class="break"></div>
 
+	<div class="row">
+	
+		<div class="card">
+			<h4>Move object</h4>
+			<p>
+				The glyph is created as an object using prototype. The animation uses <code>setInterval(function,time)</code>.	
+			</p>	
+		</div>
+		<div class="col-40">
+				
+			<div class="card">
+				 <div id="svg03">
+				 
+				 </div>
+			<div class="card">
+				<span class="a-button noselect" onclick="frameRenderLoop()">Go</span>
+				
+			</div>			
+			</div>	
+
+		</div>
+		<div class="col-60">
+			<div class="card">
+				<pre>
+					<code>
+function GlyphObject(){
+	this.glyph = glyph()
+	this.xPos = 0;
+	this.yPos = 0;
+	this.dx=1;
+	this.dy=1;
+}
+
+GlyphObject.prototype.move = function(){
+	this.xPos += this.dx;
+	this.yPos += this.dy;
+	if(this.xPos>99){
+		this.dx = this.dx*-1	
+	}
+	if(this.yPos>99){
+		this.dy = this.dy*-1	
+	}
+	if(this.xPos<1){
+		this.dx = this.dx*-1	
+	}
+	if(this.yPos<1){
+		this.dy = this.dy*-1	
+	}
+	this.glyph.setAttribute("transform","translate("+this.xPos+","+this.yPos+")");
+}
+
+GlyphObject.prototype.setPos = function(x,y){
+	this.xPos = x;
+	this.yPos = y;
+	this.glyph.setAttribute("transform","translate("+this.xPos+","+this.yPos+")");
+}
+
+function moveGlyph() {
+	mGlyph.move()
+	setTimeout(moveGlyph, 1);
+}
+
+function frameRenderLoop() {
+    setTimeout(moveGlyph, 1);
+}
+				   			 
+					</code>
+				</pre>
+				</div>	
+		</div>
+	</div>
+	<div class="break"></div>
+
+	
 	
 
 </div>
