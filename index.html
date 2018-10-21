@@ -62,19 +62,54 @@
 			</div>	
 		</div>
 	</div>
-
+	<div class="break"></div>
 	<div class="row">
+	
+		<div class="card">
+			<h4>Remove</h4>
+			<p>
+				A single SVG element can be retrieved if it has a unique ID. This element can then be removed with the <code> remove() </code>.	
+			</p>	
+		</div>
 		<div class="col-40">
+				
 			<div class="card">
-			 <p> text</p>
+				 <div id="svg02">
+				 
+				 </div>
 			</div>	
+			<div class="card">
+				<span class="a-button noselect" onclick="newGlyph()">Add</span>
+				<span class="a-button noselect" onclick="removeGlyph()">Remove</span>
+			</div>
 		</div>
 		<div class="col-60">
 			<div class="card">
-			 <p> text</p>
-			</div>	
+				<pre>
+					<code>
+function addGlyph() {
+	svg = document.getElementById("svg-canvas-02");
+	var group = glyph();
+	group.setAttribute("transform","translate("+randomInt(0,100)+","+randomInt(0,100)+")");
+	svg.appendChild(group);
+	glyphs.push(group);
+}
+
+function removeGlyph() {
+	if(glyphs.length&gt0){
+		var glyph = glyphs.pop()
+		glyph.remove();
+	}
+}
+				   			 
+					</code>
+				</pre>
+				</div>	
 		</div>
 	</div>
+	<div class="break"></div>
+
+	
 
 </div>
 <script type="text/javascript" src="js/main.js"></script>
