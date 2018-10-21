@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">		
+		<link rel="stylesheet" href="css/main.css">
+<title>SVGJavaScript</title>
+</head>
+<body onload="init()">
+<div class="navbar-white-t">
+	SVG
+</div>
+<div class="page">
+
+	<div class="row">
+		<div class="card">
+			<h4>Grouping</h4>
+			<p>
+				SVG elements can be grouped together with in the tag &ltg&gt. The g tag does not have x and y pos. It must be positioned with transform and translate			
+			</p>		
+		</div>
+		<div class="col-40">
+			<div class="card">
+			 <div id="svg01" >
+			 </div>
+			</div>	
+		</div>
+		<div class="col-60">
+			<div class="card">
+				<pre>
+					<code>
+	var elm = document.getElementById("svg01");
+	var svg = SVG("svg");
+	var circle = SVG("circle");
+	var box = SVG("rect")
+	var group = SVG("g");
+	
+	box.setAttribute("x",0)	
+	box.setAttribute("y",0)	
+	box.setAttribute("height",100)	
+	box.setAttribute("width",100)
+	box.setAttribute("fill","rgb(100,200,0)")	
+			
+	circle.setAttribute("r",45);
+	circle.setAttribute("cx",50);
+	circle.setAttribute("cy",50);
+	circle.setAttribute("fill","rgb(200,100,0)");
+	
+	group.setAttribute("transform","translate(50,50)");
+	group.appendChild(box);
+	group.appendChild(circle);
+	
+	svg.style.height="200px";
+	svg.style.width="200px";
+	svg.id = "svg-canvas-01";
+	svg.classList.add("thin-border");
+	svg.appendChild(group)
+	elm.appendChild(svg)					
+					
+   				</code>
+				</pre>
+			</div>	
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-40">
+			<div class="card">
+			 <p> text</p>
+			</div>	
+		</div>
+		<div class="col-60">
+			<div class="card">
+			 <p> text</p>
+			</div>	
+		</div>
+	</div>
+
+</div>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
